@@ -16,6 +16,6 @@ whoever@youare:$ cd will
 whoever@youare:$ python -m pip install -r requirements.txt
 whoever@youare:$ python setup.py
 ```
-by default the app comes up set to work work with sqlite. If you wanna use mysql or any other SMGDB. go to settings.py in the root directory of the project and edit it!
+by default the app comes up set to work work with sqlite. If you wanna use mysql or any other DBMS. go to settings.py in the root directory of the project and edit it!
 
 ##### For more details, just install and test it out :+1: !
