@@ -1,0 +1,44 @@
+{% include 'header.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="container navbar-container">
+	  	<div class="container">
+	  		<form class="form-inline" role="form" method="POST" action="{% url 'posting' %}"> 
+	  			{% csrf_token %}
+			   <div class="form-group"> 
+			      <label style="margin-top: 5px;" class="sr-only" for="post">
+			      	<a href="/profile" target="_self">
+			      	<div class="profile-photo" style="background: url('{{ info.photo }}'); background-size: cover; background-repeat: no-repeat; text-decoration: none;">
+	        			<img class="img-profile" src="" >
+	        		</div>
+	        		</a>
+	        	</label>
+			      <input type="text" style="border-radius: 20px; margin-top: 5px;" class="form-control" id="post"  
+			         placeholder="what's on {{ info.username }}?" name="content" autocomplete="off"> 
+			   </div>
+			   <!--<a href="/post" style="margin-top: 5px;" type="submit" class="btn btn-primary">attach a photo</a>-->
+			   <button style="margin-top: 5px;" type="submit" class="btn btn-success">Post</button> 
+			</form> 
+		</div>
+	</div>
+
+	<div class="container main-post-content">
+		<div class="all-posts">
+			{% include 'posts.html' %}
+			{% if noPostWarning %}
+			<div style="margin-top: 10px;" class="alert alert-warning"> 
+		        {{ noPostWarning }}
+		    </div>
+		    {% endif %}
+		</div>
+	</div>
+	{% if not noPostWarning %}
+	<div class="button-ver-mais" style="margin: auto; width: fit-content;">
+		<a class="more-story" href="/story?next={{ next_page }}"><button class="btn btn-primary" style="background: #192b3e; border-color: #192b3e;">see more</button></a>
+	</div>
+	{% endif %}
+
+{% endblock %}
+
+{% include 'footer.html' %}

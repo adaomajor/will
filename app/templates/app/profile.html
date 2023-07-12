@@ -1,0 +1,53 @@
+{% include 'header.html' %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+{% block content%}
+	<div class="container">
+		<div class="user-profile-content">
+			<div class="user-img" style="background: url('{{ info.photo }}');">
+				<div class="user-profile-content-photo" style="background: url('{{ info.photo }}'); background-size: cover; background-repeat: no-repeat; box-shadow: black 0px 0px 20px; border: 6px rgba(13, 110, 253, 0.48) solid;">
+
+				</div>
+			</div>
+			<div class="user-info-infos">
+				<div class="infos"><br>
+					<p><strong>@{{ info.username }}</strong></p>
+					<p><strong>ID: {{ info.userid }}</strong></p>
+					<div style="margin-top: 10px;" class="alert alert-info"> 
+		  				{{ info.bio }}
+					</div>
+					<p>
+	{% if on_profile %}
+						<div class="btn-group">
+							<a class="link-like-post" style="background: none;" href="/profile/settings"><button type="button" class="btn btn-outline-primary">settings</button></a> 	
+							<!--<a class="link-like-post" style="background: none;" href="/delete/account"><button type="button" class="btn btn-outline-danger">delete account</button></a>-->
+						</div>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container form-post">
+	  		<form class="form-inline" role="form" method="POST" action="posting"> 
+	  			{% csrf_token %}
+			   <div class="form-group"> 
+			      <input type="text" style="border-radius: 20px; margin-top: 5px;" class="form-control" id="post"  
+			         placeholder="what's on?" name="content"> 
+			   </div>
+			   <!--<a href="/post" style="margin-top: 5px;" type="submit" class="btn btn-primary">vincular uma foto</a>-->
+			   <button style="margin-top: 5px;" type="submit" class="btn btn-success">Post</button> 
+			</form> 
+		</div>
+	</div>
+	{% endif %}
+	<div class="container form-post">
+	</div>
+
+	<div class="container main-post-content">
+		<div class="all-posts">
+			{% include 'posts.html' %}
+		</div>
+	</div>
+{% endblock%}
+
+{% include 'footer.html' %}

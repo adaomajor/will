@@ -1,0 +1,109 @@
+{% include 'header.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+{% block content %}
+
+<div class="container navbar-container">
+	<div class="container">
+		<div class="user-profile-content">
+			<div class="user-img" style="background: url('{{ info.photo }}');">
+				<div class="user-profile-content-photo" style="background: url('{{ info.photo }}'); background-size: cover; background-repeat: no-repeat; box-shadow: black 0px 0px 20px; border: 6px rgba(13, 110, 253, 0.48) solid;">
+				</div>
+			</div>
+			<div class="user-info-infos">
+				<div class="infos">
+					<p><strong>@{{ info.username }}</strong></p>
+					<p><strong>ID: {{ info.userid }}</strong></p>
+					<div style="margin-top: 10px;" class="alert alert-info"> 
+		  				{{ info.bio }}
+					</div>
+					<div class="container">
+						{% if warning %}
+							<div style="margin-top: 10px;" class="alert alert-danger"> 
+							  	{{ warning }}
+							</div>
+						{% endif %}
+						<form method="POST" action="/update/photo" enctype="multipart/form-data">
+						    {% csrf_token %}
+						    <h1 class="h3 mb-3 fw-normal">change your profile photo</h1>
+						    <input type="file" name="photo" value="escolha uma photo">
+						<button class="btn btn-primary w-100 py-2" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
+  <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+  <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
+</svg> save changes</button>
+						</br></br>
+						</form>
+					</div>
+					<p>
+						<div class="btn-group">	
+							<a class="link-like-post" style="background: none;" href="/profile/settings/delete/account"><button type="button" class="btn btn-outline-danger">delete account</button></a>
+						</div>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<form method="POST" action="/update/username">
+			    {% csrf_token %}
+			    <h1 class="h3 mb-3 fw-normal">Username</h1>
+			    {% if usernamesWarning %}
+					<div style="margin-top: 10px;" class="alert alert-danger"> 
+						{{ usernamesWarning }}
+					</div>
+				{% endif %}
+			    <div class="form-floating">
+			      <input autocomplete="off" type="text" class="form-control" name="username" id="floatingInput" placeholder="anyone432" maxlength="20">
+			      <label for="floatingInput" autocomplete="off">Username</label>
+			    </div>
+			    <div class="form-floating">
+			      <input type="password" autocomplete="off" name="password" class="form-control" id="floatingPassword" placeholder="Password" maxlength="20">
+			      <label for="floatingPassword" autocomplete="off">Password</label>
+			    </div></br>
+			<button class="btn btn-primary w-100 py-2" type="submit">save changes</button>
+			</br></br>
+			</form>
+		</div>
+		<div class="container">
+			<form method="POST" action="/update/bio">
+			    {% csrf_token %}
+			    <h1 class="h3 mb-3 fw-normal">Biography</h1>
+			    {% if bioWarning %}
+					<div style="margin-top: 10px;" class="alert alert-danger"> 
+				{{ bioWarning }}
+				</div>
+				{% endif %}
+			    <div class="form-floating">
+			     	<textarea style="text-indent: none; border-radius: 20px; margin-top: 5px;" class="form-control" id="biography" placeholder="escreva sobre você!" name="biography" value="" maxlength="100">{{ info.bio }}</textarea>
+			    </div></br>
+			    <div class="form-floating">
+			      <input type="password" autocomplete="off" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+			      <label for="floatingPassword" autocomplete="off">Password</label>
+			    </div></br>
+			<button class="btn btn-primary w-100 py-2" type="submit">save changes</button>
+			</br></br>
+			</form>
+		</div>
+		<div class="container">
+			<form method="POST" action="/update/password">
+			    {% csrf_token %}
+			    <h1 class="h3 mb-3 fw-normal">Password</h1>
+			    {% if passWarning %}
+				<div style="margin-top: 10px;" class="alert alert-danger"> 
+				  {{ passWarning }}
+				</div>
+				{% endif %}
+			    <div class="form-floating">
+			      <input autocomplete="off" type="text" class="form-control" name="Opassword" id="floatingInput" placeholder="anyone432" maxlength="25">
+			      <label for="floatingInput" autocomplete="off">current password</label>
+			    </div>
+			    <div class="form-floating">
+			      <input type="password" autocomplete="off" name="password" class="form-control" id="floatingPassword" placeholder="Password" maxlength="25">
+			      <label for="floatingPassword" autocomplete="off">new password</label>
+			    </div></br>
+			<button class="btn btn-primary w-100 py-2" type="submit">save changes</button>
+			</br></br>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+{% include 'footer.html' %}

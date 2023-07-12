@@ -1,0 +1,26 @@
+.user-profile-content{
+	margin-top: 10px;
+	width: 100%;
+	border-bottom: 2px gray #106d9b;
+}
+div.user-img{
+	background-color: rgba(13,110,253,.25);;
+}
+div.user-img, .user-info-infos{
+	margin: auto;
+	text-align: center;
+}
+.infos{
+	margin: auto;
+}
+.user-profile-content-photo{
+	position: relative;
+	margin: auto;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+.form-post{
+	border-bottom: 1px gray solid;
+	padding-bottom: 5px;
+}

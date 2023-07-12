@@ -1,0 +1,33 @@
+{% include 'header.html' %}
+{% load static %}
+
+
+{% block content%}
+
+	<div class="container">
+		<div class="container">
+	  		<form class="form-inline" role="form" method="POST" action="/posting"> 
+	  			{% csrf_token %}
+			   <div class="form-group"> 
+			      <label style="margin-top: 5px;" class="sr-only" for="post">
+			      	<a href="/profile" target="_blank">
+			      	<div class="profile-photo" style="background: url('{{ info.photo }}'); background-size: cover; background-repeat: no-repeat; text-decoration: none;">
+	        			<img class="img-profile" src="" >
+	        		</div>
+	        		</a>
+	        	</label>
+			      <textarea type="text" style="text-indent: none; border-radius: 20px; margin-top: 5px;" class="form-control" id="post" placeholder="O que está pensando {{ info.username }}?" name="content" value=""></textarea>
+			   </div>
+			   <button style="margin-top: 5px;" type="submit" class="btn btn-success">Post</button> 
+			</form> 
+		</div>
+		{% if warning %}
+		<div style="margin-top: 10px;" class="alert alert-info"> 
+		  <strong>warning: </strong> {{ warning }}
+		</div>
+		{% endif %}
+	</div>
+
+{% endblock%}
+
+{% include 'footer.html' %}

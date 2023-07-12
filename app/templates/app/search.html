@@ -1,0 +1,26 @@
+{% include 'header.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+	<div class="container">
+		<center><h3>result for: "{{ query }}"</h3></center>
+		{% if error %}
+			<div style="margin-top: 10px;" class="alert alert-info"> 
+			  {{ error }}
+			</div>
+		{% else %}
+			{% for user in users %}
+			<div class="user-info" style="margin-top: 20px; padding-bottom: 10px; border-bottom: 1px grey solid;">
+				<div class="profile-photo" style="background: url('{{ user.photo }}'); background-size: cover; background-repeat: no-repeat; text-decoration: none; width: 64px; height: 64px;">
+			    	<img class="img-profile" src="" >
+			    </div>
+			    <a style="text-decoration: none; color: #106d9b;" href="/profile/id/{{ user.id }}"><span style="margin-top: 10px; margin-left: 10px"><b>{{ user.username }}</b></span></a>
+		    </div>
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
+
+{% include 'footer.html' %}

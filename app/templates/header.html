@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="max-width: 768px; margin: auto;">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title }}</title>
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/nav.css' %}" rel="stylesheet">
+	<link href="{% static 'css/posts.css' %}" rel="stylesheet">
+	<link rel="icon" type="image/icon" href="/public/z-will-img/icons/will.ico">
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark" style="background: #192b3e;" aria-label="Third navbar example">
+	    	<div class="container-fluid">
+	      <a class="navbar-brand" href="/">WILL</a>
+	      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="navbar-toggler-icon"></span>
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="navbarsExample03">
+	        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+	          <li class="nav-item">
+	            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+	          </li>
+	          <li class="nav-item">
+	          	 <a class="nav-link active" aria-current="page" href="{% url 'profile' %}">Profile</a>
+	          </li>
+	        </ul>
+	        <form role="search" action="/search" method="get">
+	          <input class="form-control" type="search" placeholder="find some one" aria-label="Search" name="query">
+	        </form>
+	      </div>
+	    	</div>
+	  	</nav>
