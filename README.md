@@ -1,7 +1,7 @@
 # will
 A webApplication written in python-django
 
-![will logo](https://avatars.githubusercontent.com/u/107593451?v=4)
+![will logo](https://github.com/adaomajor/will/public/z-will-img/icons/will.png)
 _____
 
 ### tools
