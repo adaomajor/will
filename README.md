@@ -1,7 +1,12 @@
 # will
 A webApplication written in python-django
 
-![will logo](https://github.com/adaomajor/will/blob/main/public/z-will-img/icons/will.png)
+![will logo](https://github.com/adaomajor/will/public/z-will-img/icons/will.png)
+_____
+
+### Watch the Demo Video
+
+[][Watch the demo video](https://github.com/adaomajor/will/media/z-media-uploads/)
 _____
 
 ### tools
@@ -11,11 +16,11 @@ _____
 _____
 ## installation
 ``` bash
-whoever@youare:$ git clone https://github.com/adaomajor/will
-whoever@youare:$ cd will
-whoever@youare:$ python -m pip install -r requirements.txt
-whoever@youare:$ python setup.py
+	whoever@youare:$ git clone https://github.com/adaomajor/will
+	whoever@youare:$ cd will
+	whoever@youare:$ python -m pip install -r requirements.txt
+	whoever@youare:$ python setup.py
 ```
-by default the app comes up set to work work with sqlite. If you wanna use mysql or any other DBMS. go to settings.py in the root directory of the project and edit it!
+By default the app comes up set to work with sqlite. If you wanna use mysql or any other DBMS. go to settings.py in the root directory of the project and edit it!
 
 ##### For more details, just install and test it out :+1: !
