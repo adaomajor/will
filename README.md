@@ -1,12 +1,12 @@
 # will
 A webApplication written in python-django
 
-![will logo](https://github.com/adaomajor/will/public/z-will-img/icons/will.png)
+![will logo](https://github.com/adaomajor/will/blob/main/public/z-will-img/icons/will.png)
 _____
 
 ### Watch the Demo Video
 
-[][Watch the demo video](https://github.com/adaomajor/will/media/z-media-uploads/)
+[![Watch the demo video](https://github.com/adaomajor/will/blob/main/media/z-media-uploads/image-0015.jpg)](https://github.com/adaomajor/will/raw/main/media/z-media-uploads/bandicam%202023-07-12%2001-38-23-290.avi)
 _____
 
 ### tools
