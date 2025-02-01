@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from app.models import users
+from app.models import user
 import hashlib as hs
 class login():
 	def __init__(self, username, passw, request):
@@ -9,7 +9,7 @@ class login():
 
 	def sign(self):
 		try:
-			User = users.objects.get(username=self.username, password=self.passw)
+			User = user.objects.get(username=self.username, password=self.passw)
 			if User.pk:
 				response = HttpResponseRedirect('/')
 				response.set_cookie('z-will-state','online')
@@ -31,7 +31,7 @@ class login():
 	def is_logged(self):
 		if 'z-will-state' in self.request.COOKIES and 'z-will-id' in self.request.COOKIES and 'z-will-user' in self.request.COOKIES and 'z-will-token' in self.request.COOKIES:
 			try:
-				User = users.objects.get(pk=int(self.request.COOKIES['z-will-id']) ,username=self.request.COOKIES['z-will-user'], token=self.request.COOKIES['z-will-token'])
+				User = user.objects.get(pk=int(self.request.COOKIES['z-will-id']) ,username=self.request.COOKIES['z-will-user'], token=self.request.COOKIES['z-will-token'])
 				return True
 			except:
 				return False

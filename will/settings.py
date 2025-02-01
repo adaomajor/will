@@ -88,8 +88,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'WILLDB',
-        'USER':'root',
-        'PASSWORD':'',
+        'USER':'will',
+        'PASSWORD':'toor',
         'PORT': 3306,
     }
 }"""

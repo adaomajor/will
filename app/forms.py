@@ -1,6 +1,6 @@
 from django import forms
 from django.db import models
-from app.models import posts, users
+from app.models import post, user
 import hashlib as hs
 
 class FormLogin(forms.Form):

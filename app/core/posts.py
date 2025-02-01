@@ -1,4 +1,4 @@
-from app.models import posts, users, likes
+from app.models import post as posts, user as users, like as likes
 from datetime import datetime
 
 class Post:
@@ -18,7 +18,6 @@ class Post:
 	def getMyLast5(self):
 		post = posts.objects.filter(userID=users.objects.get(pk=self.request.COOKIES['z-will-id'])).order_by('-id')[0:5]
 		POSTS = []
-
 		for pst in post:
 			ctxt = {
 				'id': pst.id,

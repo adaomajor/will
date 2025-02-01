@@ -8,7 +8,7 @@ import random
 
 APP_SECRET_KEY = b64.b64encode("adaomajorappwill2023".encode()).decode()
 
-class users(models.Model):
+class user(models.Model):
 	id       = models.AutoField(primary_key=True, null=False)
 	username = models.CharField(max_length=20, null=False)
 	bio      = models.CharField(max_length=150, null=True, default="Hi, I am a WILL's user")
@@ -27,32 +27,32 @@ class users(models.Model):
 		return "%d %s %s" %(self.id, self.username, self.token)
 
 	class Meta:
-		db_table = 'users'
+		db_table = 'User'
 
-class posts(models.Model):
+class post(models.Model):
 	id        = models.AutoField(primary_key=True, null=False)
-	userID    = models.ForeignKey(users, on_delete=models.CASCADE, null=False)
+	userID    = models.ForeignKey(user, on_delete=models.CASCADE, null=False)
 	content   = models.CharField(max_length=300, null=True)
 	timestamp = models.DateField(null=False)
 
 	def __str__(self):
 		return self.content[0:15]
 	class Meta:
-		db_table = 'posts'
+		db_table = 'Post'
 
-class likes(models.Model):
+class like(models.Model):
 	likechoice = (
 		('y', 'YES'),
 		('n', 'NO'),
 	)
 
 	id       = models.AutoField(primary_key=True, null=False)
-	userID   = models.ForeignKey(users, on_delete=models.CASCADE, null=False)
-	postID   = models.ForeignKey(posts, on_delete=models.CASCADE, null=False)
+	userID   = models.ForeignKey(user, on_delete=models.CASCADE, null=False)
+	postID   = models.ForeignKey(post, on_delete=models.CASCADE, null=False)
 	reaction = models.CharField(max_length=1, null=False, choices=likechoice, default="y")
 
 	def __str__(self):
 		return "%s" %(self.reaction)
 
 	class Meta:
-		db_table = 'likes'
+		db_table = 'Like'

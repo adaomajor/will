@@ -7,7 +7,7 @@ from app.core.login import login
 from app.core.settings import setting
 from app.core.posts import Post
 from app.core.search import search
-from app.models import users
+from app.models import user
 import re
 
 
@@ -64,7 +64,7 @@ def register(request):
 					elif not re.search('[a-zA-Z]+[0-9]',form.data['username']):
 						return render(request, 'app/register.html', { 'sucess':'error', 'warning':'try a valid username: [ e.g: adam564 ]','date': date })
 					else:
-						newUser = users()
+						newUser = user()
 						newUser.email = form.data['email'].strip()
 						newUser.username = form.data['username'].strip()
 						newUser.password = form.data['password'].strip()

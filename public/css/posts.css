@@ -28,8 +28,7 @@
 	margin-top: 4px;
 	margin-left: 10px;
 	border-radius: 10px;
-	overflow-y: scroll;
-	overflow-x: scroll;
+	text-wrap: wrap;
 }
 .post-content::-webkit-scrollbar{
 	display: none;
