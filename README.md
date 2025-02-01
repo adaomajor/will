@@ -6,13 +6,12 @@ _____
 
 ### Watch the Demo Video
 
-[![Watch the demo video](https://github.com/adaomajor/will/blob/main/media/z-media-uploads/image-0015.jpg)](https://github.com/adaomajor/will/raw/main/media/z-media-uploads/bandicam%202023-07-12%2001-38-23-290.avi)
+[![Watch the demo video](https://img.youtube.com/vi/Iv2keBIb9sM/maxresdefault.jpg)](https://youtu.be/Iv2keBIb9sM)
 _____
 
 ### tools
 1. python(django)
-2. mysql
-3. bootstrap 4.x.x
+2. bootstrap 4.x.x
 _____
 ## installation
 ``` bash
